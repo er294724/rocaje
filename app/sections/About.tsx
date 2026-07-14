@@ -16,8 +16,8 @@ export default function About() {
           >
             <div className="overflow-hidden rounded-3xl border border-white/10">
               <Image
-                src="/jose-cabrera.jpg"
-                alt="José Cabrera"
+                src="/about.jpg"
+                alt="Planta industrial de producción"
                 width={900}
                 height={900}
                 className="h-full w-full object-cover"
@@ -25,7 +25,7 @@ export default function About() {
               />
             </div>
             <div className="absolute -bottom-6 -right-6 rounded-2xl bg-[#FF6200] px-8 py-4 font-semibold text-white">
-              Ex-Colaborador Evlok
+              Consultoría industrial integral
             </div>
           </motion.div>
 
@@ -35,24 +35,24 @@ export default function About() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-5xl font-bold tracking-tighter md:text-6xl">Sobre José Cabrera</h2>
+            <h2 className="text-5xl font-bold tracking-tighter md:text-6xl">Sobre Rocaje</h2>
             <p className="text-2xl text-gray-400">
-              Con más de 15 años de experiencia real en plantas de block y adoquín, José Cabrera transforma operaciones con criterio técnico, visión industrial y foco en resultados medibles.
+              Rocaje Consultoría acompaña a plantas de block y adoquín en México con un enfoque práctico, técnico y orientado a resultados reales.
             </p>
 
             <div className="space-y-6 text-lg text-gray-300">
               <p>
-                Ex-colaborador de <span className="font-semibold text-[#FF6200]">Evlok</span>, ha acompañado a decenas de plantas en México a pasar de operar con pérdidas y cuellos de botella a trabajar con más productividad, menos tiempos muertos y mejor control del proceso.
+                El trabajo se enfoca en fortalecer la operación desde la planificación inicial, pasando por la obra civil, la adquisición e instalación de equipos, la puesta en marcha y la capacitación del equipo humano.
               </p>
               <p>
-                Su enfoque va más allá de la recomendación: diseña soluciones concretas, acompaña desde la planeación y la obra civil hasta la instalación, puesta en marcha y capacitación del equipo para que la mejora se sostenga en el tiempo.
+                La propuesta combina criterio industrial, experiencia operativa y acompañamiento continuo para mejorar la productividad, reducir pérdidas y construir plantas más eficientes y sostenibles.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">15+ años de experiencia</div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">Enfoque práctico</div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">Resultados sostenibles</div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">Enfoque industrial</div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">Acompañamiento integral</div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">Resultados medibles</div>
             </div>
           </motion.div>
         </div>

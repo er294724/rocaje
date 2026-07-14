@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-20 text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-2">
-            <span className="text-sm font-semibold tracking-widest text-[#FF6200]">ROCJAJE</span>
+            <span className="text-sm font-semibold tracking-widest text-[#FF6200]">ROCAJE</span>
           </div>
 
           <h1 className="mb-8 text-6xl font-bold leading-none tracking-tighter md:text-7xl lg:text-8xl">
