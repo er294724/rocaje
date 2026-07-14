@@ -35,24 +35,24 @@ export default function About() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-5xl font-bold tracking-tighter md:text-6xl">José Cabrera</h2>
+            <h2 className="text-5xl font-bold tracking-tighter md:text-6xl">Sobre José Cabrera</h2>
             <p className="text-2xl text-gray-400">
-              Con más de 15 años de experiencia real en plantas de block y adoquín, transformo operaciones con enfoque práctico y resultados medibles.
+              Con más de 15 años de experiencia real en plantas de block y adoquín, José Cabrera transforma operaciones con criterio técnico, visión industrial y foco en resultados medibles.
             </p>
 
             <div className="space-y-6 text-lg text-gray-300">
               <p>
-                Ex-colaborador de <span className="font-semibold text-[#FF6200]">Evlok</span>, he acompañado a decenas de plantas en México a pasar de operar con pérdidas y cuellos de botella a trabajar con más productividad, menos tiempos muertos y mejor control del proceso.
+                Ex-colaborador de <span className="font-semibold text-[#FF6200]">Evlok</span>, ha acompañado a decenas de plantas en México a pasar de operar con pérdidas y cuellos de botella a trabajar con más productividad, menos tiempos muertos y mejor control del proceso.
               </p>
               <p>
-                Mi trabajo no termina en una recomendación: acompaño al cliente desde la planeación, la obra civil, la instalación, la puesta en marcha y la capacitación del equipo para que la mejora se sostenga en el tiempo.
+                Su enfoque va más allá de la recomendación: diseña soluciones concretas, acompaña desde la planeación y la obra civil hasta la instalación, puesta en marcha y capacitación del equipo para que la mejora se sostenga en el tiempo.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">+85% Productividad</div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">Reducción de costos</div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">Plantas autosuficientes</div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">15+ años de experiencia</div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">Enfoque práctico</div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-3">Resultados sostenibles</div>
             </div>
           </motion.div>
         </div>

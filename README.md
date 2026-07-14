@@ -1,16 +1,30 @@
-# Rocaje Landing Page
+# Rocaje Consultoría
 
-Landing page moderna y premium para Rocaje, construida con Next.js 15, TypeScript, Tailwind CSS y Framer Motion.
+Landing page moderna, premium y orientada a conversiones para Rocaje Consultoría, especializada en consultoría integral para plantas de block y adoquín en México.
 
-## Características
+## Descripción
 
-- Diseño premium y moderno
-- Hero impactante con animaciones suaves
+Rocaje Consultoría acompaña a dueños y gerentes de plantas productoras de block, adoquín y prefabricados en cada etapa del proceso: desde la planificación inicial, obra civil y compra e instalación de planta, hasta la puesta en marcha, capacitación y mejora continua.
+
+El objetivo principal es incrementar la productividad real de las plantas hasta +85%, reducir costos de cemento y generar operaciones más eficientes, estables y escalables.
+
+## Propuesta de valor
+
+- Consultoría llave en mano y por proyecto
+- Enfoque práctico y ejecutable
+- Acompañamiento desde la idea hasta la operación
+- Mejora continua con foco en productividad y rentabilidad
+
+## Características del sitio
+
+- Diseño premium e industrial
+- Hero con propuesta clara y orientada a negocio
 - Secciones de: sobre José Cabrera, servicios, metodología, resultados, testimonios, por qué elegir Rocaje y contacto
-- Optimizada para producción y SEO básico
-- Responsive para escritorio y móvil
+- Navegación clara y experiencia responsive
+- Optimización básica para SEO y rendimiento
+- Animaciones suaves con Framer Motion
 
-## Tecnologías
+## Tecnologías utilizadas
 
 - Next.js 15
 - React 19
@@ -44,17 +58,23 @@ Abre http://localhost:3000 en tu navegador.
 npm run build
 ```
 
-## Estructura principal
+## Estructura del proyecto
 
 ```bash
-app/
-  components/
-  sections/
-  layout.tsx
-  page.tsx
-  globals.css
+rocaje/
+├── app/
+│   ├── components/
+│   ├── sections/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── public/
+├── next.config.ts
+├── tailwind.config.ts
+├── package.json
+└── README.md
 ```
 
-## Notas
+## Notas de mejora
 
-Este proyecto está pensado como una landing page profesional y escalable para futuras mejoras, como formularios reales, integración con email o CMS, y secciones adicionales.
+Este proyecto está pensado como una base profesional y escalable para futuras mejoras, como formularios reales, integración con WhatsApp o email, CMS, SEO avanzado y contenido más comercial por sección.
