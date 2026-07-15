@@ -1,20 +1,16 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    quote: 'Rocaje nos ayudó a ordenar la planta, mejorar procesos y ganar claridad operativa. El cambio fue real desde el primer mes.',
+    quote: 'Ordenamos la operacion y recuperamos control en pocas semanas.',
     name: 'Gerente de Planta',
     role: 'Empresa de block',
   },
   {
-    quote: 'La metodología fue muy clara, práctica y orientada a resultados. Se sintió un acompañamiento serio y profesional.',
-    name: 'Director de Operaciones',
-    role: 'Grupo industrial',
-  },
-  {
-    quote: 'Desde la primera reunión entendimos que había una propuesta de valor real. Nos dio herramientas y confianza para avanzar.',
+    quote: 'Acompanan de principio a fin, con foco total en resultado.',
     name: 'Propietario',
     role: 'Empresa de adoquín',
   },
@@ -22,16 +18,16 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonios" className="bg-[#0F172A] py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 max-w-3xl">
+    <section id="testimonios" className="bg-[#0F172A] py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-10 max-w-2xl">
           <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#FF6200]">Testimonios</p>
-          <h2 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl">
-            Lo que dicen quienes han trabajado con Rocaje.
+          <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl">
+            Clientes que ya mejoraron su operacion
           </h2>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2">
           {testimonials.map((item, index) => (
             <motion.div
               key={item.name}
@@ -39,16 +35,20 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.08 }}
-              className="rounded-[1.5rem] border border-white/10 bg-white/5 p-8"
+              className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6"
             >
-              <p className="text-lg leading-8 text-gray-300">“{item.quote}”</p>
-              <div className="mt-8">
+              <p className="text-base leading-7 text-gray-300">“{item.quote}”</p>
+              <div className="mt-6">
                 <p className="font-semibold text-white">{item.name}</p>
                 <p className="text-sm text-gray-400">{item.role}</p>
               </div>
             </motion.div>
           ))}
         </div>
+
+        <Link href="#contacto" className="mt-8 inline-flex rounded-full bg-[#FF6200] px-6 py-3 text-sm font-semibold text-white transition hover:bg-orange-600">
+          Quiero una propuesta
+        </Link>
       </div>
     </section>
   );

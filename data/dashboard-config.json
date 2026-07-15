@@ -1,0 +1,26 @@
+{
+  "siteContent": {
+    "homeHeadline": "Consultoria industrial para plantas de block y adoquin.",
+    "aboutHeadline": "Ingenieria aplicada para operaciones rentables.",
+    "contactHeadline": "Hablemos de la siguiente mejora de tu planta."
+  },
+  "contact": {
+    "email": "hola@rocaje.com",
+    "phone": "+52 66666666",
+    "websiteUrl": "/",
+    "webmailUrl": "https://mail.google.com",
+    "whatsappUrl": "https://wa.me/66666666"
+  },
+  "panels": {
+    "operations": "Seguimiento de estandarizacion, seguridad y productividad en piso.",
+    "marketing": "Control de mensajes comerciales y conversion de leads por canal.",
+    "support": "Coordinacion de solicitudes de clientes y tiempos de respuesta."
+  },
+  "stats": {
+    "monthlyVisits": 3180,
+    "activeLeads": 42,
+    "conversionRate": 17,
+    "contentSaves": 2,
+    "updatedAt": "2026-07-14T22:59:04.449Z"
+  }
+}

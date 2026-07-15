@@ -1,64 +1,68 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0A0F1C]">
+    <section className="relative min-h-[100dvh] flex items-center justify-center bg-[#0A0F1C] overflow-hidden">
+      {/* Fondo visual premium */}
       <div className="absolute inset-0 bg-[radial-gradient(at_center,#FF6200_0%,transparent_70%)] opacity-10" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-20 text-center">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-2">
-            <span className="text-sm font-semibold tracking-widest text-[#FF6200]">ROCAJE</span>
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-full px-8 py-3 mb-10 text-sm tracking-widest">
+            CONSULTORÍA INDUSTRIAL ESPECIALIZADA
           </div>
 
-          <h1 className="mb-8 text-6xl font-bold leading-none tracking-tighter md:text-7xl lg:text-8xl">
-            CONSULTORÍA INTEGRAL
-            <br />
-            PARA <span className="text-[#FF6200]">PLANTAS DE BLOCK Y ADOQUÍN</span>
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-3px] leading-none mb-8">
+            ROCAJE
           </h1>
 
-          <p className="mx-auto mb-12 max-w-3xl text-2xl text-gray-300">
-            Acompañamos proyectos desde la planificación inicial hasta la puesta en marcha, con foco en productividad, eficiencia operativa y resultados sostenibles.
+          <p className="text-2xl md:text-3xl text-gray-200 max-w-4xl mx-auto mb-12 leading-tight">
+            Consultoría industrial para plantas de block y adoquín en México.<br />
+            Acompañamos tu proyecto desde la planificación hasta la producción con resultados reales.
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-5 sm:flex-row">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <motion.a
               href="#contacto"
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="group flex items-center gap-3 rounded-2xl bg-[#FF6200] px-10 py-5 text-xl font-semibold transition-all hover:bg-orange-600"
+              whileTap={{ scale: 0.97 }}
+              className="bg-[#FF6200] hover:bg-orange-600 px-12 py-6 rounded-2xl font-semibold text-2xl flex items-center gap-4 transition-all shadow-xl"
             >
-              Solicitar asesoría
-              <ArrowRight className="transition group-hover:translate-x-1" />
+              Solicitar Asesoría
+              <ArrowRight className="w-7 h-7" />
             </motion.a>
 
             <motion.a
               href="#servicios"
-              className="flex items-center gap-3 rounded-2xl border border-white/30 px-8 py-5 text-lg font-medium transition-all hover:border-white/60"
+              whileHover={{ scale: 1.05 }}
+              className="border border-white/50 hover:border-white px-10 py-6 rounded-2xl font-medium text-2xl flex items-center gap-3 transition-all"
             >
-              <Play className="h-5 w-5" /> Ver servicios
+              <Play className="w-6 h-6" /> Ver Servicios
             </motion.a>
           </div>
 
-          <div className="mt-16 flex flex-wrap justify-center gap-8 text-sm text-gray-500">
-            <div>✅ Planificación integral</div>
-            <div>✅ Ejecución y puesta en marcha</div>
-            <div>✅ Mejora continua</div>
+          <div className="flex justify-center gap-12 mt-20 text-sm text-gray-400">
+            <div className="flex items-center gap-2">
+              <div className="w-2.5 h-2.5 bg-[#FF6200] rounded-full" />
+              Planificación completa
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2.5 h-2.5 bg-[#FF6200] rounded-full" />
+              +85% Productividad
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2.5 h-2.5 bg-[#FF6200] rounded-full" />
+              Resultados sostenibles
+            </div>
           </div>
         </motion.div>
       </div>
-
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center text-sm text-gray-500"
-      >
-        DESLIZA PARA DESCUBRIR
-        <div className="mt-2 h-12 w-px bg-gradient-to-b from-transparent via-gray-500 to-transparent" />
-      </motion.div>
     </section>
   );
 }
