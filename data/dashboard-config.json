@@ -4,12 +4,20 @@
     "aboutHeadline": "Ingenieria aplicada para operaciones rentables.",
     "contactHeadline": "Hablemos de la siguiente mejora de tu planta."
   },
+  "footer": {
+    "brandName": "Rocaje",
+    "description": "Diseno, estrategia y acompanamiento industrial para marcas y plantas que buscan crecer con claridad.",
+    "legalText": "© 2026 Rocaje. Todos los derechos reservados."
+  },
   "contact": {
-    "email": "hola@rocaje.com",
-    "phone": "+52 66666666",
+    "email": "jose@rocaje.com",
+    "phone": "+52 6671201234",
+    "message": "Si buscas elevar la productividad de tu planta, optimizar procesos y dejar una operacion mas solida, podemos trabajar juntos.",
+    "instagramUrl": "https://instagram.com/rocaje",
+    "linkedinUrl": "https://linkedin.com/company/rocaje",
     "websiteUrl": "/",
     "webmailUrl": "https://mail.google.com",
-    "whatsappUrl": "https://wa.me/66666666"
+    "whatsappUrl": "https://wa.me/6671123456"
   },
   "panels": {
     "operations": "Seguimiento de estandarizacion, seguridad y productividad en piso.",
@@ -20,7 +28,7 @@
     "monthlyVisits": 3180,
     "activeLeads": 42,
     "conversionRate": 17,
-    "contentSaves": 2,
-    "updatedAt": "2026-07-14T22:59:04.449Z"
+    "contentSaves": 3,
+    "updatedAt": "2026-07-15T00:10:13.141Z"
   }
 }
