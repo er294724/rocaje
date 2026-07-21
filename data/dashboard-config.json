@@ -10,11 +10,12 @@
     "legalText": "© 2026 Rocaje. Todos los derechos reservados."
   },
   "contact": {
-    "email": "jose@rocaje.com",
-    "phone": "+52 6671201234",
+    "email": "jcabrera@rocaje.com",
+    "phone": "+52 6676999424",
     "message": "Si buscas elevar la productividad de tu planta, optimizar procesos y dejar una operacion mas solida, podemos trabajar juntos.",
-    "instagramUrl": "https://instagram.com/rocaje",
-    "linkedinUrl": "https://linkedin.com/company/rocaje",
+    "instagramUrl": "https://instagram.com/",
+    "linkedinUrl": "https://linkedin.com",
+    "adminEmail": "jcabrera@rocaje.com",
     "websiteUrl": "/",
     "webmailUrl": "https://mail.google.com",
     "whatsappUrl": "https://wa.me/6671123456"
@@ -28,7 +29,7 @@
     "monthlyVisits": 3180,
     "activeLeads": 42,
     "conversionRate": 17,
-    "contentSaves": 3,
-    "updatedAt": "2026-07-15T00:10:13.141Z"
+    "contentSaves": 4,
+    "updatedAt": "2026-07-21T17:33:23.965Z"
   }
 }
