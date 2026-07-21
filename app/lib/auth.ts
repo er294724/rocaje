@@ -30,7 +30,7 @@ export function clearAuthCookie(response: NextResponse) {
 
 export function getExpectedCredentials() {
   return {
-    username: process.env.DASHBOARD_USERNAME || 'rocaje',
-    password: process.env.DASHBOARD_PASSWORD || 'rocaje2025',
+    username: process.env.DASHBOARD_USERNAME || 'admin',
+    password: process.env.DASHBOARD_PASSWORD || 'rocaje2026',
   };
 }

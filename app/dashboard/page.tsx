@@ -3,43 +3,165 @@ import { useState, useEffect } from 'react';
 import {
   Users,
   Globe,
-  Monitor,
   Mail,
-  Instagram,
-  Linkedin,
   Save,
   ExternalLink,
   BarChart3,
   Edit3,
 } from 'lucide-react';
 
+type DashboardConfigResponse = {
+  siteContent?: {
+    contactHeadline?: string;
+  };
+  contact?: {
+    email?: string;
+    phone?: string;
+    message?: string;
+    instagramUrl?: string;
+    linkedinUrl?: string;
+    adminEmail?: string;
+  };
+};
+
+type ContactData = {
+  title: string;
+  description: string;
+  email: string;
+  phone: string;
+  instagram: string;
+  linkedin: string;
+  adminEmail: string;
+};
+
+const defaultContactData: ContactData = {
+  title: 'Hablemos de la siguiente mejora de tu planta.',
+  description:
+    'Si buscas elevar la productividad de tu planta, optimizar procesos y dejar una operacion mas solida, podemos trabajar juntos.',
+  email: 'hola@rocaje.com',
+  phone: '+52 55 1234 5678',
+  instagram: 'https://instagram.com/rocaje',
+  linkedin: 'https://linkedin.com/company/rocaje',
+  adminEmail: 'jcabrera@rocaje.com',
+};
+
 export default function AdvancedDashboard() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [contactData, setContactData] = useState({
-    title: 'Hablemos de la siguiente mejora de tu planta.',
-    description:
-      'Si buscas elevar la productividad de tu planta, optimizar procesos y dejar una operación más sólida, podemos trabajar juntos.',
-    email: 'hola@rocaje.com',
-    phone: '+52 55 1234 5678',
-    instagram: 'https://instagram.com/rocaje',
-    linkedin: 'https://linkedin.com/company/rocaje',
-  });
+  const [contactData, setContactData] = useState<ContactData>(defaultContactData);
 
   useEffect(() => {
     const saved = localStorage.getItem('contactData');
-    if (saved) setContactData(JSON.parse(saved));
+    if (!saved) {
+      return;
+    }
+
+    try {
+      setContactData({ ...defaultContactData, ...(JSON.parse(saved) as Partial<ContactData>) });
+    } catch {
+      // Keep defaults when local data is corrupted.
+    }
   }, []);
 
-  const saveChanges = () => {
+  useEffect(() => {
+    if (!isLoggedIn) {
+      return;
+    }
+
+    let alive = true;
+
+    async function loadFromServer() {
+      try {
+        const response = await fetch('/api/dashboard-config', { cache: 'no-store' });
+        if (!response.ok) {
+          return;
+        }
+
+        const config = (await response.json()) as DashboardConfigResponse;
+        if (!alive) {
+          return;
+        }
+
+        setContactData((prev) => ({
+          ...prev,
+          title: config.siteContent?.contactHeadline || prev.title,
+          description: config.contact?.message || prev.description,
+          email: config.contact?.email || prev.email,
+          phone: config.contact?.phone || prev.phone,
+          instagram: config.contact?.instagramUrl || prev.instagram,
+          linkedin: config.contact?.linkedinUrl || prev.linkedin,
+          adminEmail: config.contact?.adminEmail || prev.adminEmail,
+        }));
+      } catch {
+        // Keep local values when API is unavailable.
+      }
+    }
+
+    loadFromServer();
+
+    return () => {
+      alive = false;
+    };
+  }, [isLoggedIn]);
+
+  const saveChanges = async () => {
     localStorage.setItem('contactData', JSON.stringify(contactData));
-    alert('✅ Cambios guardados y publicados en el sitio.');
+
+    try {
+      const response = await fetch('/api/dashboard-config', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          siteContent: {
+            contactHeadline: contactData.title,
+          },
+          contact: {
+            email: contactData.email,
+            phone: contactData.phone,
+            message: contactData.description,
+            instagramUrl: contactData.instagram,
+            linkedinUrl: contactData.linkedin,
+            adminEmail: contactData.adminEmail,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('No se pudo guardar en servidor.');
+      }
+
+      alert('✅ Cambios guardados y publicados en el sitio.');
+    } catch {
+      alert('⚠️ Se guardo en este navegador, pero no se pudo publicar en el servidor.');
+    }
   };
 
-  const handleLogin = (e: any) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (e.target.username.value === 'admin' && e.target.password.value === 'rocaje2026') {
+    const form = e.currentTarget;
+    const username = (form.elements.namedItem('username') as HTMLInputElement | null)?.value ?? '';
+    const password = (form.elements.namedItem('password') as HTMLInputElement | null)?.value ?? '';
+
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (response.ok) {
       setIsLoggedIn(true);
+      return;
     }
+
+    alert('Credenciales invalidas.');
+  };
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/logout', { method: 'POST' });
+    } catch {
+      // Ignore network errors on logout and continue locally.
+    }
+    setIsLoggedIn(false);
   };
 
   if (!isLoggedIn) {
@@ -49,7 +171,7 @@ export default function AdvancedDashboard() {
           <h2 className="text-3xl font-bold text-center mb-8">Dashboard Rocaje</h2>
           <form onSubmit={handleLogin} className="space-y-6">
             <input name="username" type="text" placeholder="Usuario" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4" required />
-            <input name="password" type="password" placeholder="Contraseña" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4" required />
+            <input name="password" type="password" placeholder="Contrasena" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4" required />
             <button type="submit" className="w-full bg-[#FF6200] py-5 rounded-2xl font-semibold text-lg">Entrar al Panel</button>
           </form>
         </div>
@@ -65,7 +187,7 @@ export default function AdvancedDashboard() {
             <h1 className="text-4xl font-bold">Panel de Control Rocaje</h1>
             <p className="text-gray-400">Gestión completa del sitio y estadísticas</p>
           </div>
-          <button onClick={() => setIsLoggedIn(false)} className="text-red-400 hover:text-red-500">Cerrar Sesión</button>
+          <button onClick={handleLogout} className="text-red-400 hover:text-red-500">Cerrar Sesion</button>
         </div>
 
         {/* Acceso rápido a Webmail */}
@@ -131,34 +253,31 @@ export default function AdvancedDashboard() {
                 <input value={contactData.email} onChange={(e) => setContactData({...contactData, email: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4" />
               </div>
               <div>
+                <label className="block text-sm mb-2">Correo de recepcion de leads</label>
+                <input value={contactData.adminEmail} onChange={(e) => setContactData({...contactData, adminEmail: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4" />
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
                 <label className="block text-sm mb-2">Teléfono / WhatsApp</label>
                 <input value={contactData.phone} onChange={(e) => setContactData({...contactData, phone: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4" />
+              </div>
+              <div>
+                <label className="block text-sm mb-2">Instagram</label>
+                <input value={contactData.instagram} onChange={(e) => setContactData({...contactData, instagram: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4" />
               </div>
             </div>
 
             {/* Redes Sociales */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <label className="block text-sm mb-2">Instagram</label>
-                <div className="relative">
-                  <Instagram className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400" />
-                  <input
-                    value={contactData.instagram}
-                    onChange={(e) => setContactData({ ...contactData, instagram: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-12 pr-6 py-4"
-                  />
-                </div>
-              </div>
+            <div className="grid md:grid-cols-1 gap-8">
               <div>
                 <label className="block text-sm mb-2">LinkedIn</label>
-                <div className="relative">
-                  <Linkedin className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400" />
-                  <input
-                    value={contactData.linkedin}
-                    onChange={(e) => setContactData({ ...contactData, linkedin: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-12 pr-6 py-4"
-                  />
-                </div>
+                <input
+                  value={contactData.linkedin}
+                  onChange={(e) => setContactData({ ...contactData, linkedin: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4"
+                />
               </div>
             </div>
           </div>

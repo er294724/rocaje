@@ -20,6 +20,7 @@ type DashboardConfig = {
     message: string;
     instagramUrl: string;
     linkedinUrl: string;
+    adminEmail: string;
     websiteUrl: string;
     webmailUrl: string;
     whatsappUrl: string;
@@ -58,6 +59,7 @@ const defaultConfig: DashboardConfig = {
     message: 'Si buscas elevar la productividad de tu planta, optimizar procesos y dejar una operacion mas solida, podemos trabajar juntos.',
     instagramUrl: 'https://instagram.com/rocaje',
     linkedinUrl: 'https://linkedin.com/company/rocaje',
+    adminEmail: 'jcabrera@rocaje.com',
     websiteUrl: '/',
     webmailUrl: 'https://mail.google.com',
     whatsappUrl: 'https://wa.me/525512345678',
